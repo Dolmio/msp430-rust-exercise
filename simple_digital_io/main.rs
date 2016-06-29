@@ -1,11 +1,8 @@
-#![feature(asm, core, intrinsics, lang_items, no_std, start)]
+#![feature(asm, intrinsics, lang_items, start)]
 #![no_std]
 
-#[lang = "stack_exhausted"] extern fn stack_exhausted() {}
 #[lang = "eh_personality"] extern fn eh_personality() {}
 #[lang = "panic_fmt"] fn panic_fmt() -> ! { loop {} }
-
-extern crate core;
 
 macro_rules! port {
     ($name:ident = $value:expr) => {
